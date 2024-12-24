@@ -1,85 +1,215 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dimm Technology</title>
-    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            overflow: hidden;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .categories {
+            margin-bottom: 20px;
+        }
+
+        .categories button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .categories button:hover {
+            background-color: #555;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .product-card h3 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .product-card p {
+            color: #555;
+        }
+
+        .product-card .price {
+            font-size: 1.2em;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .product-card button {
+            padding: 10px 15px;
+            margin-top: 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .product-card button:hover {
+            background-color: #0056b3;
+        }
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+            
+        }
+    </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <p class="logo">Dimm Technology</p>
-            <nav>
-                <a href="#quienessomos">Quienes Somos</a>
-                <a href="#nuestros-programas">Servicios</a>
-                <a href="#ventajas">Ventajas</a>
-            </nav>
-        </div>
+        <h1>DIMM TECHNOLOGY</h1>
+        <p>Productos y servicios informáticos</p>
     </header>
-
-    <section id="hero">
-        <h1>Servicios y productos <br>informáticos</h1>
-        <!-- <button>APLICÁ YA!</button> -->
-    </section>
-
-    <section id="quienessomos">
-        <div class="container">
-            <div class="img-container"></div>
-            <div class="texto">
-
-                <h2>Dimm <span class="color-acento">technology</span></h2>
-                <p> Expertos en bits.
-                </p>
-            </div>
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#categorias">Categorías</a>
+        <a href="#productos">Productos</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="container">
+        <!-- Categorías -->
+        <div class="categories" id="categorias">
+            <h2>Categorías</h2>
+            <button onclick="filterCategory('Servicios')">Servicios</button>
+            <button onclick="filterCategory('Software')">Software</button>
+            <button onclick="filterCategory('Ofertas')">Ofertas</button>
+            <button onclick="filterCategory('')">Todos</button>
         </div>
-    </section>
-
-    <section id="nuestros-programas">
-        <div class="container">
-            <h2>Servicios más solicitados</h2>
-            <div class="programas">
-                <div class="carta">
-                    <h3>Mantenimiento. preventivo</h3>
-                    <p>Mantenemos tu laptop en óptimas condiciones con limpieza profesional para eliminar polvo y suciedad, actualización de software y controladores para un rendimiento óptimo, y optimización del sistema operativo para que funcione como nuevo. </p>
-                        <a class="boton" href="https://wa.link/oapeh9">Info</a>
-                </div>
-                <div class="carta">
-                    <h3>Mantenimiento correctivo</h3>
-                    <p>¿Problemas con el hardware o el software? ¡No te preocupes! Nuestros expertos están aquí para solucionar cualquier problema, desde fallas en el disco duro hasta errores del sistema operativo. ¡Deja que nuestros técnicos calificados resuelvan tus problemas de manera rápida y efectiva!</p>
-                    <a class="boton" href="https://wa.link/rjg32d">Info</a>
-                </div>
-                <div class="carta">
-                    <h3>Licencia de Microsoft Office</h3>
-                    <p>¿Quieres disfrutar de todas las ventajas de Microsoft Office sin gastar una fortuna? ¡Estás en el lugar correcto!  disfrutar de todas las ventajas de Microsoft Office sin gastar una</p>
-                    <a class="boton" href="https://wa.link/wvlii9">Info</a>
-                </div>  
-            </div>
+        <!-- Productos -->
+        <div class="products" id="productos">
+            <!-- Productos individuales -->
         </div>
-    </section>
-
-    <section id="ventajas">
-        <div class="container">
-            <h2>Ventajas al contratarnos</h2>
-            <ul>
-                <li>✔️ Reecolección y entrega a domicilio</li>
-                <li>✔️ Flexibilidad de horarios</li>
-                <li>✔️ Soporte remoto 1:1</li>
-                <li>✔️ Meses sin intereses con TC</li>
-                <li>✔️ Garantia por escrito</li>
-
-            </ul>
-        </div>
-    </section>
-
-    <section id="final">
-        <h2>“¿Te gustaría que recojamos tu equipo? Si es así, por favor agenda una cita.”</h2>
-        <a class="boton" href="https://wa.link/rdjq1a">Info</a>   
-    </section>
-
-    <footer>
-
-        <div class="container">
-        <p>&copy; Dimm technology</p>
     </div>
-    </footer>x
+    <script>
+        // Lista de productos
+        const products = [
+            { id: 1, name: "Mantenimiento Preventivo Pc| Laptop| Impresoras", category: "Servicios", price: 495, image: "https://i.ytimg.com/vi/Xcs2MzqWxtM/maxresdefault.jpg" },
+            { id: 2, name: "Microsoft Office 365 100Gb en Drive", category: "Software", price: 350, image: "https://th.bing.com/th/id/R.49888d4a97bf60d09e8b63fd8b672b63?rik=6RmJEHU4DbTyEw&pid=ImgRaw&r=0" },
+            { id: 3, name: "10X Aumenta al doble la velocidad de tu PC|Laptop", category: "Servicios", price: 1500, image: "https://th.bing.com/th/id/OIP.Jt8olVGF5qDGenejRtnqHQHaHa?rs=1&pid=ImgDetMain" },
+            { id: 4, name: "Punto de Venta ELEVENTA", category: "Software", price: 800, image: "https://assets.eleventa.com/assets/blog/eleventa-5.0.png" },
+            { id: 5, name: "Cambio de pantalla Laptop", category: "Servicios", price: 350, image: "https://nbk.cl/wp-content/uploads/2019/08/reparacion-de-pantallas-laptop-Queretaro-e1566085512166.jpg" },
+            { id: 6, name: "Oferta Especial: Licencia Antivirus kaspersky Plus", category: "Ofertas", price: 260, image: "https://production-tailoy-repo-magento-statics.s3.amazonaws.com/imagenes/872x872/productos/i/a/n/antivirus-kaspersky-plus-5-dispositivos-1-ano-69594-default-1.jpg" },
+        ];
+
+        // Renderizar productos
+        function renderProducts(filter = "") {
+            const container = document.getElementById("productos");
+            container.innerHTML = ""; // Limpiar productos
+            const filteredProducts = filter ? products.filter(p => p.category === filter) : products;
+            filteredProducts.forEach(product => {
+                container.innerHTML += `
+                    <div class="product-card">
+                        <img src="${product.image}" alt="${product.name}">
+                        <h3>${product.name}</h3>
+                        <p class="price">$${product.price}</p>
+                        <button onClick="window.location.href='https://wa.link/7bv4zl'">Información</button>
+                        
+                    </div>
+                `;
+            });
+        }
+
+        // Filtrar productos por categoría
+        function filterCategory(category) {
+            renderProducts(category);
+        }
+
+        // Agregar producto al carrito
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            alert(`¡${product.name} agregado al carrito!`);
+        }
+
+        // Inicializar productos
+        renderProducts();
+    </script>
+  <script>
+    // Crear copos de nieve
+    function createSnowflake() {
+        const snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
+        snowflake.style.left = `${Math.random() * 100}vw`; // Posición aleatoria
+        snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`; // Duración aleatoria
+        snowflake.style.width = snowflake.style.height = `${Math.random() * 10 + 5}px`; // Tamaño aleatorio
+        document.body.appendChild(snowflake);
+
+        // Eliminar copo de nieve después de que termine su animación
+        snowflake.addEventListener("animationend", () => snowflake.remove());
+    }
+
+    // Generar copos de nieve cada 200ms
+    setInterval(createSnowflake, 2000);
+</script>
 </body>
 </html>
