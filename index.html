@@ -195,21 +195,61 @@
         renderProducts();
     </script>
   <script>
-    // Crear copos de nieve
-    function createSnowflake() {
-        const snowflake = document.createElement("div");
-        snowflake.classList.add("snowflake");
-        snowflake.style.left = `${Math.random() * 100}vw`; // Posición aleatoria
-        snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`; // Duración aleatoria
-        snowflake.style.width = snowflake.style.height = `${Math.random() * 10 + 5}px`; // Tamaño aleatorio
-        document.body.appendChild(snowflake);
+    // // Crear copos de nieve
+    // function createSnowflake() {
+    //     const snowflake = document.createElement("div");
+    //     snowflake.classList.add("snowflake");
+    //     snowflake.style.left = `${Math.random() * 100}vw`; // Posición aleatoria
+    //     snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`; // Duración aleatoria
+    //     snowflake.style.width = snowflake.style.height = `${Math.random() * 10 + 5}px`; // Tamaño aleatorio
+    //     document.body.appendChild(snowflake);
 
-        // Eliminar copo de nieve después de que termine su animación
-        snowflake.addEventListener("animationend", () => snowflake.remove());
-    }
+    //     // Eliminar copo de nieve después de que termine su animación
+    //     snowflake.addEventListener("animationend", () => snowflake.remove());
+    // }
 
-    // Generar copos de nieve cada 200ms
-    setInterval(createSnowflake, 2000);
+    // // Generar copos de nieve cada 200ms
+    // setInterval(createSnowflake, 2000);
+
+
 </script>
+
+<style>
+    .bird {
+      position: fixed;
+      top: -50px;
+      font-size: 24px;
+      pointer-events: none;
+      animation: flyDown linear forwards;
+    }
+  
+    @keyframes flyDown {
+      to {
+        transform: translateY(100vh) translateX(50px);
+        opacity: 0;
+      }
+    }
+  </style>
+  
+  <script>
+    function createBird() {
+      const bird = document.createElement("div");
+      bird.classList.add("bird");
+      bird.textContent = "🕊️"; // Puedes cambiar este emoji por una imagen si prefieres
+  
+      bird.style.left = `${Math.random() * 100}vw`;
+      bird.style.animationDuration = `${Math.random() * 3 + 2}s`;
+      bird.style.fontSize = `${Math.random() * 10 + 20}px`;
+  
+      document.body.appendChild(bird);
+  
+      bird.addEventListener("animationend", () => bird.remove());
+    }
+  
+    setInterval(createBird, 2000);
+  </script>
+  
+
+
 </body>
 </html>
