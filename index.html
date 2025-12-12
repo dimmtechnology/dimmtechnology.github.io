@@ -3,256 +3,452 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dimm Technology</title>
+    <title>Dimmtechnology - Reparación Profesional de Laptops</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
         }
 
         header {
-            background-color: #333;
+            background: rgba(0, 0, 0, 0.95);
             color: white;
-            padding: 10px 20px;
-            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(20px);
         }
 
         nav {
-            background-color: #444;
-            overflow: hidden;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            padding: 10px 15px;
-            display: inline-block;
+            transition: opacity 0.3s;
         }
 
         nav a:hover {
-            background-color: #555;
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 150px 2rem 100px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s 0.2s backwards;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #1a1a1a;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s 0.4s backwards;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         .container {
-            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
         }
 
-        .categories {
-            margin-bottom: 20px;
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
         }
 
-        .categories button {
-            padding: 10px 15px;
-            margin: 5px;
-            border: none;
-            background-color: #333;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .categories button:hover {
-            background-color: #555;
-        }
-
-        .products {
+        .services {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
         }
 
-        .product-card {
+        .service-card {
             background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
             text-align: center;
         }
 
-        .product-card img {
-            max-width: 100%;
-            border-radius: 10px;
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         }
 
-        .product-card h3 {
-            font-size: 1.2em;
-            margin: 10px 0;
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
         }
 
-        .product-card p {
-            color: #555;
+        .service-card h3 {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
 
-        .product-card .price {
-            font-size: 1.2em;
-            color: #28a745;
-            font-weight: bold;
+        .features {
+            background: #f8f9fa;
+            padding: 4rem 2rem;
         }
 
-        .product-card button {
-            padding: 10px 15px;
-            margin-top: 10px;
-            border: none;
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
+        .features-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
         }
 
-        .product-card button:hover {
-            background-color: #0056b3;
+        .slider-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
         }
-        .snowflake {
-            position: fixed;
-            top: -10px;
-            width: 10px;
-            height: 10px;
-            background: white;
+
+        .feature-item {
+            min-width: 100%;
+            text-align: center;
+            padding: 3rem 2rem;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .feature-item.active {
+            opacity: 1;
+        }
+
+        .feature-item h4 {
+            color: #1a1a1a;
+            margin: 1rem 0;
+            font-size: 1.8rem;
+        }
+
+        .feature-item p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            opacity: 0.8;
-            animation: fall linear infinite;
+            background: #d1d5db;
+            cursor: pointer;
+            transition: all 0.3s;
         }
 
-        @keyframes fall {
-            0% {
+        .dot.active {
+            background: #1a1a1a;
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+
+        .slider-arrow:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        .slider-arrow.prev {
+            left: 1rem;
+        }
+
+        .slider-arrow.next {
+            right: 1rem;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            font-size: 1.1rem;
+        }
+
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
                 transform: translateY(0);
             }
-            100% {
-                transform: translateY(100vh);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
             }
             
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>DIMM TECHNOLOGY</h1>
-        <p>Productos y servicios informáticos</p>
+        <nav>
+            <div class="logo">💻 Dimmtechnology</div>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <a href="#">Inicio</a>
-        <a href="#categorias">Categorías</a>
-        <a href="#productos">Productos</a>
-        <a href="#contacto">Contacto</a>
-    </nav>
-    <div class="container">
-        <!-- Categorías -->
-        <div class="categories" id="categorias">
-            <h2>Categorías</h2>
-            <button onclick="filterCategory('Servicios')">Servicios</button>
-            <button onclick="filterCategory('Software')">Software</button>
-            <button onclick="filterCategory('Ofertas')">Ofertas</button>
-            <button onclick="filterCategory('')">Todos</button>
+
+    <section id="inicio" class="hero">
+        <h1>Reparación Profesional de Laptops</h1>
+        <p>Invierte en tu herramienta que utilizas todos los días.</p>
+        <a href="https://wa.me/5219511996199?text=Hola,%20necesito%20un%20diagnóstico%20para%20mi%20laptop" target="_blank" class="btn">Solicitar Diagnóstico</a>
+    </section>
+
+    <section id="servicios" class="container">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <div class="services">
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Reparación de Hardware</h3>
+                <p>Reemplazo de pantallas, teclados, baterías, discos duros y componentes internos.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💾</div>
+                <h3>Recuperación de Datos</h3>
+                <p>Recuperamos información de discos dañados y sistemas que no inician.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Optimización</h3>
+                <p>Mejoramos el rendimiento de tu laptop con actualizaciones de RAM y SSD.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🛡️</div>
+                <h3>Eliminación de Virus</h3>
+                <p>Limpieza completa de malware y protección de tu sistema operativo.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌡️</div>
+                <h3>Mantenimiento Preventivo</h3>
+                <p>Limpieza interna, cambio de pasta térmica y revisión general.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Instalación de Software</h3>
+                <p>Instalamos sistemas operativos, drivers y programas especializados.</p>
+            </div>
         </div>
-        <!-- Productos -->
-        <div class="products" id="productos">
-            <!-- Productos individuales -->
+    </section>
+
+    <section id="nosotros" class="features">
+        <h2 class="section-title">¿Por qué elegirnos?</h2>
+        <div class="features-slider">
+            <button class="slider-arrow prev" onclick="moveSlide(-1)">‹</button>
+            <button class="slider-arrow next" onclick="moveSlide(1)">›</button>
+            
+            <div class="slider-container">
+                <div class="feature-item active">
+                    <div style="font-size: 3.5rem;">⚡</div>
+                    <h4>Servicio Rápido</h4>
+                    <p>Reparaciones en 24-48 horas en la mayoría de los casos</p>
+                </div>
+                <div class="feature-item">
+                    <div style="font-size: 3.5rem;">✅</div>
+                    <h4>Garantía por Escrito</h4>
+                    <p>3 meses de garantía en todas nuestras reparaciones</p>
+                </div>
+                <div class="feature-item">
+                    <div style="font-size: 3.5rem;">👨‍🔧</div>
+                    <h4>Técnicos Certificados</h4>
+                    <p>Más de 10 años de experiencia en el sector</p>
+                </div>
+                <div class="feature-item">
+                    <div style="font-size: 3.5rem;">💰</div>
+                    <h4>Precios Justos</h4>
+                    <p>Diagnóstico gratuito y presupuestos sin compromiso</p>
+                </div>
+                <div class="feature-item">
+                    <div style="font-size: 3.5rem;">🚚</div>
+                    <h4>Recolección y Entrega a Domicilio</h4>
+                    <p>Recogemos y entregamos tu laptop donde lo necesites</p>
+                </div>
+            </div>
+            
+            <div class="slider-dots">
+                <span class="dot active" onclick="currentSlide(0)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <section id="contacto" class="contact">
+        <h2>Recomendaciones</h2>
+        <p>¿Te gustó nuestro servicio? Déjanos tu opinión en Google</p>
+        <div class="contact-info">
+            <a href="https://g.page/r/CRpweGbvrNZuEBM/review" target="_blank" class="btn" style="margin-top: 2rem;">Dejar Recomendación en Google</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Dimmtechnology. Todos los derechos reservados.</p>
+    </footer>
+
     <script>
-        // Lista de productos
-        const products = [
-            { id: 1, name: "Mantenimiento Preventivo Pc, Laptop", category: "Servicios", price: 500, image: "https://pe-media.hptiendaenlinea.com/wysiwyg/n0fmoui4.png" },
-            { id: 2, name: "Microsoft Office 365 100Gb en Drive", category: "Software", price: 350, image: "https://th.bing.com/th/id/R.49888d4a97bf60d09e8b63fd8b672b63?rik=6RmJEHU4DbTyEw&pid=ImgRaw&r=0" },
-            { id: 3, name: "10X Aumenta al doble la velocidad de tu PC|Laptop", category: "Servicios", price: 2000, image: "https://th.bing.com/th/id/OIP.Jt8olVGF5qDGenejRtnqHQHaHa?rs=1&pid=ImgDetMain" },
-            { id: 4, name: "Punto de Venta ELEVENTA", category: "Software", price: 800, image: "https://assets.eleventa.com/assets/blog/eleventa-5.0.png" },
-            { id: 5, name: "Cambio de pantalla Laptop", category: "Servicios", price: 250, image: "https://nbk.cl/wp-content/uploads/2019/08/reparacion-de-pantallas-laptop-Queretaro-e1566085512166.jpg" },
-            { id: 6, name: "Licencia Antivirus kaspersky Plus", category: "Software", price: 395, image: "https://production-tailoy-repo-magento-statics.s3.amazonaws.com/imagenes/872x872/productos/i/a/n/antivirus-kaspersky-plus-5-dispositivos-1-ano-69594-default-1.jpg" },
-            { id: 7, name: "Licencia Permanente Microsoft Office 2021", category: "Software", price: 450, image: "https://pcgamermexico.com/71333-superlarge_default_2x/office-2021-professional-plus.jpg" },
-            { id: 8, name: "Mantenimiento Preventivo Impresoras", category: "Servicios", price: 500, image: "https://chemicalexs.com.mx/wp-content/uploads/2023/11/0cc0bbdf-78ea-44e3-b58b-2a882301424b-edited.jpg" },
-        ];
+        let currentIndex = 0;
+        const items = document.querySelectorAll('.feature-item');
+        const dots = document.querySelectorAll('.dot');
+        const totalItems = items.length;
 
-        // Renderizar productos
-        function renderProducts(filter = "") {
-            const container = document.getElementById("productos");
-            container.innerHTML = ""; // Limpiar productos
-            const filteredProducts = filter ? products.filter(p => p.category === filter) : products;
-            filteredProducts.forEach(product => {
-                container.innerHTML += `
-                    <div class="product-card">
-                        <img src="${product.image}" alt="${product.name}">
-                        <h3>${product.name}</h3>
-                        <p class="price">$${product.price}</p>
-                        <button onClick="window.location.href='https://wa.link/7bv4zl'">Información</button>
-                        
-                    </div>
-                `;
+        function showSlide(index) {
+            items.forEach((item, i) => {
+                item.classList.remove('active');
+                if (i === index) {
+                    item.classList.add('active');
+                }
             });
+
+            dots.forEach((dot, i) => {
+                dot.classList.remove('active');
+                if (i === index) {
+                    dot.classList.add('active');
+                }
+            });
+
+            const container = document.querySelector('.slider-container');
+            container.style.transform = `translateX(-${index * 100}%)`;
         }
 
-        // Filtrar productos por categoría
-        function filterCategory(category) {
-            renderProducts(category);
+        function moveSlide(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) {
+                currentIndex = totalItems - 1;
+            } else if (currentIndex >= totalItems) {
+                currentIndex = 0;
+            }
+            showSlide(currentIndex);
         }
 
-        // Agregar producto al carrito
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            alert(`¡${product.name} agregado al carrito!`);
+        function currentSlide(index) {
+            currentIndex = index;
+            showSlide(currentIndex);
         }
 
-        // Inicializar productos
-        renderProducts();
+        // Auto-play
+        setInterval(() => {
+            moveSlide(1);
+        }, 5000);
     </script>
-  <script>
-    // // Crear copos de nieve
-    // function createSnowflake() {
-    //     const snowflake = document.createElement("div");
-    //     snowflake.classList.add("snowflake");
-    //     snowflake.style.left = `${Math.random() * 100}vw`; // Posición aleatoria
-    //     snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`; // Duración aleatoria
-    //     snowflake.style.width = snowflake.style.height = `${Math.random() * 10 + 5}px`; // Tamaño aleatorio
-    //     document.body.appendChild(snowflake);
-
-    //     // Eliminar copo de nieve después de que termine su animación
-    //     snowflake.addEventListener("animationend", () => snowflake.remove());
-    // }
-
-    // // Generar copos de nieve cada 200ms
-    // setInterval(createSnowflake, 2000);
-
-
-</script>
-
-<style>
-    .bird {
-      position: fixed;
-      top: -50px;
-      font-size: 24px;
-      pointer-events: none;
-      animation: flyDown linear forwards;
-    }
-  
-    @keyframes flyDown {
-      to {
-        transform: translateY(100vh) translateX(50px);
-        opacity: 0;
-      }
-    }
-  </style>
-  
-  <script>
-    function createBird() {
-      const bird = document.createElement("div");
-      bird.classList.add("bird");
-      bird.textContent = "🕊️"; // Puedes cambiar este emoji por una imagen si prefieres
-  
-      bird.style.left = `${Math.random() * 100}vw`;
-      bird.style.animationDuration = `${Math.random() * 3 + 2}s`;
-      bird.style.fontSize = `${Math.random() * 10 + 20}px`;
-  
-      document.body.appendChild(bird);
-  
-      bird.addEventListener("animationend", () => bird.remove());
-    }
-  
-    setInterval(createBird, 2000);
-  </script>
-  
-
-
 </body>
 </html>
-
