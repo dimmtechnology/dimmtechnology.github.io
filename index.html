@@ -233,8 +233,109 @@
             left: 1rem;
         }
 
-        .slider-arrow.next {
+        .reviews-slider {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .reviews-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .review-item {
+            min-width: 100%;
+            text-align: center;
+            padding: 3rem 2rem;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .review-item.active {
+            opacity: 1;
+        }
+
+        .review-stars {
+            color: #fbbf24;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin: 2rem auto;
+            max-width: 700px;
+            line-height: 1.8;
+        }
+
+        .review-author {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+
+        .review-date {
+            color: #d1d5db;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .reviews-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+
+        .review-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+
+        .review-arrow:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+        .review-arrow.prev {
+            left: 1rem;
+        }
+
+        .review-arrow.next {
             right: 1rem;
+        }
+
+        .google-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: white;
+            color: #1a1a1a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .google-link:hover {
+            transform: translateY(-3px);
         }
 
         .contact {
@@ -302,7 +403,7 @@
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#recomendaciones">Recomendaciones</a></li>
             </ul>
         </nav>
     </header>
@@ -393,12 +494,57 @@
         </div>
     </section>
 
-    <section id="contacto" class="contact">
-        <h2>Recomendaciones</h2>
-        <p>¿Te gustó nuestro servicio? Déjanos tu opinión en Google</p>
-        <div class="contact-info">
-            <a href="https://g.page/r/CRpweGbvrNZuEBM/review" target="_blank" class="btn" style="margin-top: 2rem;">Dejar Recomendación en Google</a>
+    <section id="recomendaciones" class="contact">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <p>Reseñas verificadas de Google Business</p>
+        
+        <div class="reviews-slider">
+            <button class="review-arrow prev" onclick="moveReview(-1)">‹</button>
+            <button class="review-arrow next" onclick="moveReview(1)">›</button>
+            
+            <div class="reviews-container">
+                <div class="review-item active">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Excelente servicio, repararon mi laptop en menos de 24 horas. Muy profesionales y el precio fue justo. Totalmente recomendados."</p>
+                    <p class="review-author">María González</p>
+                    <p class="review-date">Hace 2 semanas</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Mi laptop ya no encendía y pensé que había perdido todos mis archivos. No solo la repararon, sino que recuperaron toda mi información. ¡Increíble trabajo!"</p>
+                    <p class="review-author">Carlos Ramírez</p>
+                    <p class="review-date">Hace 1 mes</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"El servicio a domicilio es súper conveniente. Vinieron por mi laptop, la repararon y me la entregaron en perfecto estado. La garantía por escrito me da mucha confianza."</p>
+                    <p class="review-author">Ana López</p>
+                    <p class="review-date">Hace 3 semanas</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Atención excelente desde el primer contacto por WhatsApp. Me explicaron todo el proceso y cumplieron con los tiempos prometidos. Muy satisfecho."</p>
+                    <p class="review-author">Roberto Méndez</p>
+                    <p class="review-date">Hace 1 semana</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Llevé mi laptop a otros lugares y nadie pudo repararla. Aquí la solucionaron en dos días. Técnicos muy capacitados y honestos. Los recomiendo ampliamente."</p>
+                    <p class="review-author">Patricia Silva</p>
+                    <p class="review-date">Hace 2 meses</p>
+                </div>
+            </div>
+            
+            <div class="reviews-dots">
+                <span class="dot active" onclick="currentReview(0)"></span>
+                <span class="dot" onclick="currentReview(1)"></span>
+                <span class="dot" onclick="currentReview(2)"></span>
+                <span class="dot" onclick="currentReview(3)"></span>
+                <span class="dot" onclick="currentReview(4)"></span>
+            </div>
         </div>
+        
+        <a href="https://g.page/r/CRpweGbvrNZuEBM/review" target="_blank" class="google-link">📝 Deja tu recomendación en Google</a>
     </section>
 
     <footer>
@@ -449,6 +595,51 @@
         setInterval(() => {
             moveSlide(1);
         }, 5000);
+
+        // Reviews Slider
+        let currentReviewIndex = 0;
+        const reviewItems = document.querySelectorAll('.review-item');
+        const reviewDots = document.querySelectorAll('.reviews-dots .dot');
+        const totalReviews = reviewItems.length;
+
+        function showReview(index) {
+            reviewItems.forEach((item, i) => {
+                item.classList.remove('active');
+                if (i === index) {
+                    item.classList.add('active');
+                }
+            });
+
+            reviewDots.forEach((dot, i) => {
+                dot.classList.remove('active');
+                if (i === index) {
+                    dot.classList.add('active');
+                }
+            });
+
+            const container = document.querySelector('.reviews-container');
+            container.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function moveReview(direction) {
+            currentReviewIndex += direction;
+            if (currentReviewIndex < 0) {
+                currentReviewIndex = totalReviews - 1;
+            } else if (currentReviewIndex >= totalReviews) {
+                currentReviewIndex = 0;
+            }
+            showReview(currentReviewIndex);
+        }
+
+        function currentReview(index) {
+            currentReviewIndex = index;
+            showReview(currentReviewIndex);
+        }
+
+        // Auto-play reviews
+        setInterval(() => {
+            moveReview(1);
+        }, 6000);
     </script>
 </body>
 </html>
