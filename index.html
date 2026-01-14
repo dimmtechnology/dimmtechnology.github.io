@@ -540,21 +540,13 @@
             <h3>¡Oferta Especial!</h3>
             <div class="popup-discount">10% OFF</div>
             <p>Regístrate ahora y obtén un 10% de descuento en tu primera reparación</p>
-            <form
-  action="https://formspree.io/f/xzddzzar"
-  method="POST"
->
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
+            
+            <form class="popup-form" action="https://formspree.io/f/xzddzzar" method="POST">
+    <input type="text" name="nombre" class="popup-input" placeholder="Tu nombre" required>
+    <input type="email" name="email" class="popup-input" placeholder="Tu correo electrónico" required>
+    <button type="submit" class="popup-submit">Obtener mi descuento</button>
 </form>
+            
         </div>
     </div>
 
@@ -855,4 +847,3 @@
     </script>
 </body>
 </html>
-
