@@ -3,209 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dimmtechnology - Reparación Profesional de Laptops</title>
+    <title>Dimmtechnology - Reparación de Laptops</title>
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+        body { font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; line-height:1.6; color:#333; }
         header {
-            background: rgba(0,0,0,0.95);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            backdrop-filter: blur(20px);
+            background:rgba(0,0,0,0.95); color:white; padding:1rem 0; position:fixed; width:100%; top:0; z-index:1000;
+            box-shadow:0 2px 10px rgba(0,0,0,0.1); backdrop-filter:blur(20px);
         }
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 1rem;
-        }
-        .logo { font-size: 1.3rem; font-weight: bold; }
-        nav ul { list-style: none; display: flex; gap: 1rem; font-size: 0.85rem; }
-        nav a { color: white; text-decoration: none; transition: opacity 0.3s; }
-        nav a:hover { opacity: 0.8; }
+        nav { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding:0 1rem; }
+        .logo { font-size:1.3rem; font-weight:bold; }
+        nav ul { list-style:none; display:flex; gap:1rem; font-size:0.85rem; }
+        nav a { color:white; text-decoration:none; transition:opacity 0.3s; }
+        nav a:hover { opacity:0.8; }
 
-        .hero {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            color: white;
-            padding: 140px 1.5rem 100px;
-            text-align: center;
-            margin-top: 60px;
-        }
-        .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.3rem; margin-bottom: 2rem; }
-        .btn {
-            display: inline-block;
-            background: white;
-            color: #1a1a1a;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        .btn:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.2); }
+        .hero { background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%); color:white; padding:140px 1.5rem 100px; text-align:center; margin-top:60px; }
+        .hero h1 { font-size:2.8rem; margin-bottom:1rem; }
+        .hero p { font-size:1.3rem; margin-bottom:2rem; }
+        .btn { display:inline-block; background:white; color:#1a1a1a; padding:1rem 2rem; text-decoration:none; border-radius:50px; font-weight:bold; transition:all 0.3s; }
+        .btn:hover { transform:translateY(-4px); box-shadow:0 12px 24px rgba(0,0,0,0.2); }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem; }
-        .section-title { text-align: center; font-size: 2.4rem; margin-bottom: 3rem; color: #1a1a1a; }
+        .container { max-width:1200px; margin:0 auto; padding:4rem 1.5rem; }
+        .section-title { text-align:center; font-size:2.4rem; margin-bottom:3rem; color:#1a1a1a; }
 
-        .features {
-            background: #f8f9fa;
-            padding: 6rem 1rem;
-        }
+        .features { background:#f8f9fa; padding:6rem 1rem; }
         .features-slider {
-            max-width: 1200px;          /* más ancho para separar mejor las flechas */
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-            padding: 3rem 40px;         /* padding lateral clave */
+            max-width:1200px; margin:0 auto; position:relative; padding:3rem 0; overflow:visible !important;
         }
-        .slider-container {
-            display: flex;
-            transition: transform 0.6s ease;
-        }
+        .slider-container { display:flex; transition:transform 0.6s ease; }
         .feature-item {
-            min-width: 100%;
-            text-align: center;
-            padding: 2rem;
-            opacity: 0;
-            transition: opacity 0.6s;
+            min-width:100%; flex-shrink:0; text-align:center; padding:2rem 1rem; opacity:0; transition:opacity 0.6s;
         }
-        .feature-item.active { opacity: 1; }
-        .feature-item div { font-size: 4.5rem; margin-bottom: 1.5rem; }
-        .feature-item h4 { font-size: 1.8rem; margin: 1rem 0; color: #1a1a1a; }
-        .feature-item p { font-size: 1.1rem; color: #555; max-width: 700px; margin: 0 auto; }
+        .feature-item.active { opacity:1; }
+        .feature-item div { font-size:4.5rem; margin-bottom:1.5rem; }
+        .feature-item h4 { font-size:1.8rem; margin:1rem 0; color:#1a1a1a; }
+        .feature-item p { font-size:1.1rem; color:#555; max-width:700px; margin:0 auto; }
 
         .slider-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 70px;
-            height: 70px;
-            background: rgba(0,0,0,0.6);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 2.2rem;
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.3s;
+            position:absolute; top:50%; transform:translateY(-50%); width:70px; height:70px;
+            background:rgba(0,0,0,0.6); color:white; border:none; border-radius:50%; font-size:2.5rem;
+            cursor:pointer; z-index:20; transition:all 0.3s; box-shadow:0 4px 12px rgba(0,0,0,0.3);
         }
-        .slider-arrow:hover { background: rgba(0,0,0,0.9); transform: translateY(-50%) scale(1.1); }
-        .slider-arrow.prev { left: 0; }
-        .slider-arrow.next { right: 0; }
+        .slider-arrow:hover { background:rgba(0,0,0,0.9); transform:translateY(-50%) scale(1.1); }
+        .slider-arrow.prev { left:-20px; }
+        .slider-arrow.next { right:-20px; }
 
-        .slider-dots {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2.5rem;
-        }
-        .dot {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: #ccc;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .dot.active { background: #1a1a1a; width: 40px; border-radius: 20px; }
+        .slider-dots { display:flex; justify-content:center; gap:1rem; margin-top:2.5rem; }
+        .dot { width:14px; height:14px; border-radius:50%; background:#ccc; cursor:pointer; transition:all 0.3s; }
+        .dot.active { background:#1a1a1a; width:40px; border-radius:20px; }
 
-        /* Responsivo */
-        @media (max-width: 768px) {
-            .features-slider { padding: 2rem 20px; }
-            .slider-arrow { width: 55px; height: 55px; font-size: 1.8rem; }
-            .hero h1 { font-size: 2.2rem; }
-            .section-title { font-size: 2rem; }
+        @media (max-width:768px) {
+            .features-slider { padding:2rem 0; }
+            .slider-arrow { width:55px; height:55px; font-size:2rem; }
+            .slider-arrow.prev { left:5px; }
+            .slider-arrow.next { right:5px; }
+            .hero h1 { font-size:2.2rem; }
+            .section-title { font-size:2rem; }
         }
 
-        /* Resto de estilos (servicios, reseñas, popup, footer, etc.) se mantienen iguales */
-        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        .service-card:hover { transform: translateY(-8px); }
-        .service-icon { font-size: 3rem; margin-bottom: 1rem; }
+        /* Mantengo el resto de estilos simplificados para el ejemplo – agrega los tuyos de servicios, reseñas, popup, etc. */
+        .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
+        .service-card { background:white; padding:2rem; border-radius:16px; box-shadow:0 6px 20px rgba(0,0,0,0.08); text-align:center; transition:transform 0.3s; }
+        .service-card:hover { transform:translateY(-8px); }
 
-        .reviews-slider { max-width: 1000px; margin: 0 auto; position: relative; }
-        .reviews-container { display: flex; transition: transform 0.6s ease; }
-        .review-item { min-width: 100%; text-align: center; padding: 2rem; opacity: 0; transition: opacity 0.6s; }
-        .review-item.active { opacity: 1; }
-        .review-stars { color: #fbbf24; font-size: 2.2rem; margin-bottom: 1.5rem; }
-        .review-text { font-size: 1.15rem; font-style: italic; max-width: 800px; margin: 0 auto 1.5rem; line-height: 1.8; }
-        .review-author { font-weight: bold; font-size: 1.15rem; }
-        .review-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background: rgba(0,0,0,0.4);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 1.6rem;
-            cursor: pointer;
-        }
-        .review-arrow.prev { left: 10px; }
-        .review-arrow.next { right: 10px; }
-
-        .popup-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.7);
-            z-index: 9999;
-            align-items: center;
-            justify-content: center;
-        }
-        .popup-overlay.active { display: flex; }
-        .popup-content {
-            background: white;
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-            text-align: center;
-        }
-        .popup-close { position: absolute; top: 1rem; right: 1rem; font-size: 1.8rem; background: none; border: none; cursor: pointer; }
-        .popup-discount { font-size: 3.5rem; color: #10b981; font-weight: bold; margin: 1rem 0; }
-
-        footer { background: #1a1a1a; color: white; text-align: center; padding: 3rem; }
+        footer { background:#1a1a1a; color:white; text-align:center; padding:3rem; }
     </style>
 </head>
 <body>
-
-    <div class="popup-overlay" id="popupOverlay">
-        <div class="popup-content">
-            <button class="popup-close" onclick="document.getElementById('popupOverlay').classList.remove('active')">✕</button>
-            <div style="font-size:5rem;">🎁</div>
-            <h2>¡Oferta Especial!</h2>
-            <div class="popup-discount">10% OFF</div>
-            <p>Regístrate y obtén 10% de descuento en tu primera reparación</p>
-            <form style="display:flex; flex-direction:column; gap:1.2rem; max-width:400px; margin:2rem auto 0;">
-                <input type="text" placeholder="Tu nombre" required style="padding:1rem; border:1px solid #ddd; border-radius:8px;">
-                <input type="email" placeholder="Tu correo" required style="padding:1rem; border:1px solid #ddd; border-radius:8px;">
-                <button type="submit" style="padding:1rem; background:#1a1a1a; color:white; border:none; border-radius:50px; font-weight:bold; cursor:pointer;">Obtener descuento</button>
-            </form>
-        </div>
-    </div>
 
     <header>
         <nav>
@@ -225,34 +89,37 @@
         <a href="https://wa.me/5219511996199?text=Hola,%20necesito%20un%20diagnóstico%20para%20mi%20laptop" target="_blank" class="btn">Solicitar Diagnóstico</a>
     </section>
 
-    <section id="servicios" class="container">
-        <h2 class="section-title">Nuestros Servicios</h2>
-        <div class="services">
-            <!-- Aquí van tus tarjetas de servicios (las omito por brevedad, copia las tuyas) -->
-        </div>
-    </section>
-
     <section id="nosotros" class="features">
         <h2 class="section-title">¿Por qué elegirnos?</h2>
         <div class="features-slider">
             <button class="slider-arrow prev" onclick="moveSlide(-1)">‹</button>
             <button class="slider-arrow next" onclick="moveSlide(1)">›</button>
-            
+
             <div class="slider-container">
                 <div class="feature-item active">
-                    <div>⚡</div><h4>Servicio Rápido</h4><p>Reparaciones en 24-48 horas en la mayoría de los casos</p>
+                    <div>⚡</div>
+                    <h4>Servicio Rápido</h4>
+                    <p>Reparaciones en 24-48 horas en la mayoría de los casos</p>
                 </div>
                 <div class="feature-item">
-                    <div>✅</div><h4>Garantía por Escrito</h4><p>3 meses de garantía en todas nuestras reparaciones</p>
+                    <div>✅</div>
+                    <h4>Garantía por Escrito</h4>
+                    <p>3 meses de garantía en todas nuestras reparaciones</p>
                 </div>
                 <div class="feature-item">
-                    <div>👨‍🔧</div><h4>Técnicos Certificados</h4><p>Más de 10 años de experiencia en el sector</p>
+                    <div>👨‍🔧</div>
+                    <h4>Técnicos Certificados</h4>
+                    <p>Más de 10 años de experiencia en el sector</p>
                 </div>
                 <div class="feature-item">
-                    <div>💰</div><h4>Precios Justos</h4><p>Diagnóstico gratuito y presupuestos sin compromiso</p>
+                    <div>💰</div>
+                    <h4>Precios Justos</h4>
+                    <p>Diagnóstico gratuito y presupuestos sin compromiso</p>
                 </div>
                 <div class="feature-item">
-                    <div>🚚</div><h4>Recolección y Entrega</h4><p>Recogemos y entregamos tu laptop donde lo necesites</p>
+                    <div>🚚</div>
+                    <h4>Recolección y Entrega a Domicilio</h4>
+                    <p>Recogemos y entregamos tu laptop donde lo necesites</p>
                 </div>
             </div>
 
@@ -266,22 +133,22 @@
         </div>
     </section>
 
-    <!-- Resto de secciones (reseñas, footer) -->
+    <!-- Agrega aquí tus otras secciones (servicios, reseñas, popup, footer) como en tu código original -->
 
     <script>
         let currentIndex = 0;
         const items = document.querySelectorAll('.feature-item');
         const dots = document.querySelectorAll('.dot');
-        const total = items.length;
+        const totalItems = items.length;
 
-        function showSlide(n) {
-            items.forEach((el,i) => el.classList.toggle('active', i===n));
-            dots.forEach((el,i) => el.classList.toggle('active', i===n));
-            document.querySelector('.slider-container').style.transform = `translateX(-${n*100}%)`;
+        function showSlide(index) {
+            items.forEach((item, i) => item.classList.toggle('active', i === index));
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+            document.querySelector('.slider-container').style.transform = `translateX(-${index * 100}%)`;
         }
 
-        function moveSlide(dir) {
-            currentIndex = (currentIndex + dir + total) % total;
+        function moveSlide(direction) {
+            currentIndex = (currentIndex + direction + totalItems) % totalItems;
             showSlide(currentIndex);
         }
 
@@ -290,9 +157,7 @@
             showSlide(n);
         }
 
-        setInterval(() => moveSlide(1), 5000);
-
-        // Agrega aquí el resto de tu JS (reseñas, popup, etc.)
+        setInterval(() => moveSlide(1), 5000); // Auto-slide cada 5s
     </script>
 </body>
 </html>
