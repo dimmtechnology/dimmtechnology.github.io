@@ -69,14 +69,14 @@
         }
 
         .hero h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             animation: fadeInUp 1s;
             line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 2rem;
             animation: fadeInUp 1s 0.2s backwards;
             line-height: 1.6;
@@ -108,8 +108,8 @@
 
         .section-title {
             text-align: center;
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
             color: #1a1a1a;
         }
 
@@ -152,11 +152,11 @@
 
         .features {
             background: #f8f9fa;
-            padding: 3rem 1.5rem;
+            padding: 5rem 1rem;
         }
 
         .features-slider {
-            max-width: 800px;
+            max-width: 1100px;
             margin: 0 auto;
             position: relative;
             overflow: hidden;
@@ -165,15 +165,17 @@
 
         .slider-container {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            transition: transform 0.6s ease-in-out;
+            width: 100%;
         }
 
         .feature-item {
             min-width: 100%;
+            flex-shrink: 0;
             text-align: center;
-            padding: 2rem 1.5rem;
+            padding: 2rem 2rem;
             opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            transition: opacity 0.6s ease-in-out;
         }
 
         .feature-item.active {
@@ -182,23 +184,23 @@
 
         .feature-item h4 {
             color: #1a1a1a;
-            margin: 1rem 0;
-            font-size: 1.5rem;
+            margin: 1.2rem 0 0.8rem;
+            font-size: 1.6rem;
         }
 
         .feature-item p {
-            font-size: 1rem;
-            color: #666;
-            max-width: 600px;
+            font-size: 1.05rem;
+            color: #555;
+            max-width: 680px;
             margin: 0 auto;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .slider-dots {
             display: flex;
             justify-content: center;
-            gap: 0.8rem;
-            margin-top: 2rem;
+            gap: 1rem;
+            margin-top: 2.5rem;
         }
 
         .dot {
@@ -212,7 +214,7 @@
 
         .dot.active {
             background: #1a1a1a;
-            width: 30px;
+            width: 36px;
             border-radius: 6px;
         }
 
@@ -220,31 +222,37 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0,0,0,0.5);
+            background: rgba(26, 26, 26, 0.7);
             color: white;
             border: none;
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.5rem;
+            font-size: 2rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.3s;
+            transition: all 0.3s;
             z-index: 10;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
         }
 
         .slider-arrow:hover {
-            background: rgba(0,0,0,0.8);
+            background: rgba(26, 26, 26, 0.95);
+            transform: translateY(-50%) scale(1.12);
         }
 
         .slider-arrow.prev {
-            left: 1rem;
+            left: 25px;
+        }
+
+        .slider-arrow.next {
+            right: 25px;
         }
 
         .reviews-slider {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             position: relative;
             overflow: hidden;
@@ -270,49 +278,49 @@
 
         .review-stars {
             color: #fbbf24;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
         }
 
         .review-text {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-style: italic;
             margin: 1.5rem auto;
-            max-width: 700px;
-            line-height: 1.7;
+            max-width: 760px;
+            line-height: 1.8;
         }
 
         .review-author {
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 1.1rem;
             margin-top: 1rem;
         }
 
         .review-date {
             color: #d1d5db;
-            font-size: 0.85rem;
-            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            margin-top: 0.6rem;
         }
 
         .reviews-dots {
             display: flex;
             justify-content: center;
-            gap: 0.8rem;
-            margin-top: 2rem;
+            gap: 0.9rem;
+            margin-top: 2.5rem;
         }
 
         .review-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.25);
             color: white;
             border: none;
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -321,21 +329,21 @@
         }
 
         .review-arrow:hover {
-            background: rgba(255,255,255,0.4);
+            background: rgba(255,255,255,0.45);
         }
 
         .review-arrow.prev {
-            left: 0.5rem;
+            left: 10px;
         }
 
         .review-arrow.next {
-            right: 0.5rem;
+            right: 10px;
         }
 
         .google-link {
             display: inline-block;
-            margin-top: 2rem;
-            padding: 1rem 2rem;
+            margin-top: 2.5rem;
+            padding: 1rem 2.2rem;
             background: white;
             color: #1a1a1a;
             text-decoration: none;
@@ -356,7 +364,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.75);
             z-index: 9999;
             justify-content: center;
             align-items: center;
@@ -369,27 +377,27 @@
 
         .popup-content {
             background: white;
-            padding: 2.5rem 2rem;
-            border-radius: 20px;
-            max-width: 450px;
-            width: 90%;
+            padding: 2.8rem 2.2rem;
+            border-radius: 24px;
+            max-width: 480px;
+            width: 92%;
             position: relative;
             text-align: center;
             animation: slideUp 0.4s;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
         }
 
         .popup-close {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
+            top: 1.2rem;
+            right: 1.2rem;
             background: #f3f4f6;
             border: none;
-            width: 35px;
-            height: 35px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: #1a1a1a;
             transition: background 0.3s;
         }
@@ -399,40 +407,40 @@
         }
 
         .popup-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 4rem;
+            margin-bottom: 1.2rem;
         }
 
         .popup-content h3 {
             color: #1a1a1a;
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
+            font-size: 2rem;
+            margin-bottom: 0.6rem;
         }
 
         .popup-discount {
             color: #10b981;
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: bold;
-            margin: 1rem 0;
+            margin: 1.2rem 0;
         }
 
         .popup-content p {
             color: #6b7280;
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
+            margin-bottom: 1.8rem;
+            font-size: 1.1rem;
         }
 
         .popup-form {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.2rem;
         }
 
         .popup-input {
-            padding: 1rem;
+            padding: 1.1rem;
             border: 2px solid #e5e7eb;
-            border-radius: 10px;
-            font-size: 1rem;
+            border-radius: 12px;
+            font-size: 1.05rem;
             transition: border-color 0.3s;
         }
 
@@ -444,18 +452,18 @@
         .popup-submit {
             background: #1a1a1a;
             color: white;
-            padding: 1rem 2rem;
+            padding: 1.1rem 2.2rem;
             border: none;
             border-radius: 50px;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 1.05rem;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .popup-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
         }
 
         @keyframes fadeIn {
@@ -466,7 +474,7 @@
         @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(60px);
             }
             to {
                 opacity: 1;
@@ -477,37 +485,38 @@
         .contact {
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             color: white;
-            padding: 3rem 1.5rem;
+            padding: 5rem 1.5rem;
             text-align: center;
         }
 
         .contact h2 {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            font-size: 2.2rem;
         }
 
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 3rem;
+            gap: 3.5rem;
             flex-wrap: wrap;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
         }
 
         .contact-item {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
 
         footer {
             background: #2d3748;
             color: white;
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -517,16 +526,40 @@
 
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
-            nav ul {
-                gap: 1rem;
+            .section-title {
+                font-size: 1.9rem;
             }
-            
-            .contact-info {
-                flex-direction: column;
-                gap: 1rem;
+
+            .slider-arrow {
+                width: 50px;
+                height: 50px;
+                font-size: 1.6rem;
+            }
+
+            .slider-arrow.prev {
+                left: 12px;
+            }
+
+            .slider-arrow.next {
+                right: 12px;
+            }
+
+            .features-slider {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .btn {
+                padding: 0.8rem 1.6rem;
             }
         }
     </style>
@@ -542,11 +575,10 @@
             <p>Regístrate ahora y obtén un 10% de descuento en tu primera reparación</p>
             
             <form class="popup-form" action="https://formspree.io/f/xzddzzar" method="POST">
-    <input type="text" name="nombre" class="popup-input" placeholder="Tu nombre" required>
-    <input type="email" name="email" class="popup-input" placeholder="Tu correo electrónico" required>
-    <button type="submit" class="popup-submit">Obtener mi descuento</button>
-</form>
-            
+                <input type="text" name="nombre" class="popup-input" placeholder="Tu nombre" required>
+                <input type="email" name="email" class="popup-input" placeholder="Tu correo electrónico" required>
+                <button type="submit" class="popup-submit">Obtener mi descuento</button>
+            </form>
         </div>
     </div>
 
@@ -627,27 +659,27 @@
             
             <div class="slider-container">
                 <div class="feature-item active">
-                    <div style="font-size: 3.5rem;">⚡</div>
+                    <div style="font-size: 3.8rem;">⚡</div>
                     <h4>Servicio Rápido</h4>
                     <p>Reparaciones en 24-48 horas en la mayoría de los casos</p>
                 </div>
                 <div class="feature-item">
-                    <div style="font-size: 3.5rem;">✅</div>
+                    <div style="font-size: 3.8rem;">✅</div>
                     <h4>Garantía por Escrito</h4>
                     <p>3 meses de garantía en todas nuestras reparaciones</p>
                 </div>
                 <div class="feature-item">
-                    <div style="font-size: 3.5rem;">👨‍🔧</div>
+                    <div style="font-size: 3.8rem;">👨‍🔧</div>
                     <h4>Técnicos Certificados</h4>
                     <p>Más de 10 años de experiencia en el sector</p>
                 </div>
                 <div class="feature-item">
-                    <div style="font-size: 3.5rem;">💰</div>
+                    <div style="font-size: 3.8rem;">💰</div>
                     <h4>Precios Justos</h4>
                     <p>Diagnóstico gratuito y presupuestos sin compromiso</p>
                 </div>
                 <div class="feature-item">
-                    <div style="font-size: 3.5rem;">🚚</div>
+                    <div style="font-size: 3.8rem;">🚚</div>
                     <h4>Recolección y Entrega a Domicilio</h4>
                     <p>Recogemos y entregamos tu laptop donde lo necesites</p>
                 </div>
@@ -717,28 +749,22 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 Dimmtechnology. Todos los derechos reservados.</p>
+        <p>© 2025 Dimmtechnology. Todos los derechos reservados.</p>
     </footer>
 
     <script>
         let currentIndex = 0;
         const items = document.querySelectorAll('.feature-item');
-        const dots = document.querySelectorAll('.dot');
+        const dots = document.querySelectorAll('.slider-dots .dot');
         const totalItems = items.length;
 
         function showSlide(index) {
             items.forEach((item, i) => {
-                item.classList.remove('active');
-                if (i === index) {
-                    item.classList.add('active');
-                }
+                item.classList.toggle('active', i === index);
             });
 
             dots.forEach((dot, i) => {
-                dot.classList.remove('active');
-                if (i === index) {
-                    dot.classList.add('active');
-                }
+                dot.classList.toggle('active', i === index);
             });
 
             const container = document.querySelector('.slider-container');
@@ -746,12 +772,7 @@
         }
 
         function moveSlide(direction) {
-            currentIndex += direction;
-            if (currentIndex < 0) {
-                currentIndex = totalItems - 1;
-            } else if (currentIndex >= totalItems) {
-                currentIndex = 0;
-            }
+            currentIndex = (currentIndex + direction + totalItems) % totalItems;
             showSlide(currentIndex);
         }
 
@@ -760,10 +781,8 @@
             showSlide(currentIndex);
         }
 
-        // Auto-play
-        setInterval(() => {
-            moveSlide(1);
-        }, 5000);
+        // Auto-play features
+        setInterval(() => moveSlide(1), 5000);
 
         // Reviews Slider
         let currentReviewIndex = 0;
@@ -773,17 +792,11 @@
 
         function showReview(index) {
             reviewItems.forEach((item, i) => {
-                item.classList.remove('active');
-                if (i === index) {
-                    item.classList.add('active');
-                }
+                item.classList.toggle('active', i === index);
             });
 
             reviewDots.forEach((dot, i) => {
-                dot.classList.remove('active');
-                if (i === index) {
-                    dot.classList.add('active');
-                }
+                dot.classList.toggle('active', i === index);
             });
 
             const container = document.querySelector('.reviews-container');
@@ -791,12 +804,7 @@
         }
 
         function moveReview(direction) {
-            currentReviewIndex += direction;
-            if (currentReviewIndex < 0) {
-                currentReviewIndex = totalReviews - 1;
-            } else if (currentReviewIndex >= totalReviews) {
-                currentReviewIndex = 0;
-            }
+            currentReviewIndex = (currentReviewIndex + direction + totalReviews) % totalReviews;
             showReview(currentReviewIndex);
         }
 
@@ -806,14 +814,11 @@
         }
 
         // Auto-play reviews
-        setInterval(() => {
-            moveReview(1);
-        }, 6000);
+        setInterval(() => moveReview(1), 6000);
 
         // Popup functionality
         function showPopup() {
-            const popup = document.getElementById('popupOverlay');
-            popup.classList.add('active');
+            document.getElementById('popupOverlay').classList.add('active');
         }
 
         function closePopup() {
@@ -822,27 +827,16 @@
             localStorage.setItem('popupShown', 'true');
         }
 
-        function handleSubmit(event) {
-            event.preventDefault();
-            alert('¡Gracias por registrarte! Te hemos enviado tu cupón de 10% de descuento por correo.');
-            closePopup();
-        }
-
         // Show popup after 5 seconds if not shown before
         window.addEventListener('load', () => {
-            const popupShown = localStorage.getItem('popupShown');
-            if (!popupShown) {
-                setTimeout(() => {
-                    showPopup();
-                }, 5000);
+            if (!localStorage.getItem('popupShown')) {
+                setTimeout(showPopup, 5000);
             }
         });
 
         // Close popup when clicking outside
         document.getElementById('popupOverlay').addEventListener('click', (e) => {
-            if (e.target.id === 'popupOverlay') {
-                closePopup();
-            }
+            if (e.target.id === 'popupOverlay') closePopup();
         });
     </script>
 </body>
