@@ -3,73 +3,552 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dimmtechnology - Reparación de Laptops</title>
+    <title>Dimmtechnology - Reparación Profesional de Laptops</title>
     <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; line-height:1.6; color:#333; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
         header {
-            background:rgba(0,0,0,0.95); color:white; padding:1rem 0; position:fixed; width:100%; top:0; z-index:1000;
-            box-shadow:0 2px 10px rgba(0,0,0,0.1); backdrop-filter:blur(20px);
+            background: rgba(0, 0, 0, 0.95);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(20px);
         }
-        nav { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding:0 1rem; }
-        .logo { font-size:1.3rem; font-weight:bold; }
-        nav ul { list-style:none; display:flex; gap:1rem; font-size:0.85rem; }
-        nav a { color:white; text-decoration:none; transition:opacity 0.3s; }
-        nav a:hover { opacity:0.8; }
 
-        .hero { background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%); color:white; padding:140px 1.5rem 100px; text-align:center; margin-top:60px; }
-        .hero h1 { font-size:2.8rem; margin-bottom:1rem; }
-        .hero p { font-size:1.3rem; margin-bottom:2rem; }
-        .btn { display:inline-block; background:white; color:#1a1a1a; padding:1rem 2rem; text-decoration:none; border-radius:50px; font-weight:bold; transition:all 0.3s; }
-        .btn:hover { transform:translateY(-4px); box-shadow:0 12px 24px rgba(0,0,0,0.2); }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
 
-        .container { max-width:1200px; margin:0 auto; padding:4rem 1.5rem; }
-        .section-title { text-align:center; font-size:2.4rem; margin-bottom:3rem; color:#1a1a1a; }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
 
-        .features { background:#f8f9fa; padding:6rem 1rem; }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 120px 1.5rem 80px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s 0.2s backwards;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #1a1a1a;
+            padding: 0.9rem 1.8rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s 0.4s backwards;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: #1a1a1a;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .features {
+            background: #f8f9fa;
+            padding: 3rem 1.5rem;
+        }
+
         .features-slider {
-            max-width:1200px; margin:0 auto; position:relative; padding:3rem 0; overflow:visible !important;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
         }
-        .slider-container { display:flex; transition:transform 0.6s ease; }
+
+        .slider-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
         .feature-item {
-            min-width:100%; flex-shrink:0; text-align:center; padding:2rem 1rem; opacity:0; transition:opacity 0.6s;
+            min-width: 100%;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
         }
-        .feature-item.active { opacity:1; }
-        .feature-item div { font-size:4.5rem; margin-bottom:1.5rem; }
-        .feature-item h4 { font-size:1.8rem; margin:1rem 0; color:#1a1a1a; }
-        .feature-item p { font-size:1.1rem; color:#555; max-width:700px; margin:0 auto; }
+
+        .feature-item.active {
+            opacity: 1;
+        }
+
+        .feature-item h4 {
+            color: #1a1a1a;
+            margin: 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        .feature-item p {
+            font-size: 1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #d1d5db;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: #1a1a1a;
+            width: 30px;
+            border-radius: 6px;
+        }
 
         .slider-arrow {
-            position:absolute; top:50%; transform:translateY(-50%); width:70px; height:70px;
-            background:rgba(0,0,0,0.6); color:white; border:none; border-radius:50%; font-size:2.5rem;
-            cursor:pointer; z-index:20; transition:all 0.3s; box-shadow:0 4px 12px rgba(0,0,0,0.3);
-        }
-        .slider-arrow:hover { background:rgba(0,0,0,0.9); transform:translateY(-50%) scale(1.1); }
-        .slider-arrow.prev { left:-20px; }
-        .slider-arrow.next { right:-20px; }
-
-        .slider-dots { display:flex; justify-content:center; gap:1rem; margin-top:2.5rem; }
-        .dot { width:14px; height:14px; border-radius:50%; background:#ccc; cursor:pointer; transition:all 0.3s; }
-        .dot.active { background:#1a1a1a; width:40px; border-radius:20px; }
-
-        @media (max-width:768px) {
-            .features-slider { padding:2rem 0; }
-            .slider-arrow { width:55px; height:55px; font-size:2rem; }
-            .slider-arrow.prev { left:5px; }
-            .slider-arrow.next { right:5px; }
-            .hero h1 { font-size:2.2rem; }
-            .section-title { font-size:2rem; }
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            z-index: 10;
         }
 
-        /* Mantengo el resto de estilos simplificados para el ejemplo – agrega los tuyos de servicios, reseñas, popup, etc. */
-        .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
-        .service-card { background:white; padding:2rem; border-radius:16px; box-shadow:0 6px 20px rgba(0,0,0,0.08); text-align:center; transition:transform 0.3s; }
-        .service-card:hover { transform:translateY(-8px); }
+        .slider-arrow:hover {
+            background: rgba(0,0,0,0.8);
+        }
 
-        footer { background:#1a1a1a; color:white; text-align:center; padding:3rem; }
+        .slider-arrow.prev {
+            left: 1rem;
+        }
+
+        .reviews-slider {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .reviews-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .review-item {
+            min-width: 100%;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .review-item.active {
+            opacity: 1;
+        }
+
+        .review-stars {
+            color: #fbbf24;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            font-size: 1.05rem;
+            font-style: italic;
+            margin: 1.5rem auto;
+            max-width: 700px;
+            line-height: 1.7;
+        }
+
+        .review-author {
+            font-weight: bold;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        .review-date {
+            color: #d1d5db;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .reviews-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+
+        .review-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+
+        .review-arrow:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+        .review-arrow.prev {
+            left: 0.5rem;
+        }
+
+        .review-arrow.next {
+            right: 0.5rem;
+        }
+
+        .google-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: white;
+            color: #1a1a1a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .google-link:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Popup Styles */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s;
+        }
+
+        .popup-overlay.active {
+            display: flex;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            max-width: 450px;
+            width: 90%;
+            position: relative;
+            text-align: center;
+            animation: slideUp 0.4s;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #f3f4f6;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.3rem;
+            color: #1a1a1a;
+            transition: background 0.3s;
+        }
+
+        .popup-close:hover {
+            background: #e5e7eb;
+        }
+
+        .popup-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .popup-content h3 {
+            color: #1a1a1a;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .popup-discount {
+            color: #10b981;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .popup-content p {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .popup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .popup-input {
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .popup-input:focus {
+            outline: none;
+            border-color: #1a1a1a;
+        }
+
+        .popup-submit {
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .popup-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            font-size: 1.1rem;
+        }
+
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Popup de Descuento -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closePopup()">✕</button>
+            <div class="popup-icon">🎁</div>
+            <h3>¡Oferta Especial!</h3>
+            <div class="popup-discount">10% OFF</div>
+            <p>Regístrate ahora y obtén un 10% de descuento en tu primera reparación</p>
+            
+            <form class="popup-form" action="https://formspree.io/f/xzddzzar" method="POST">
+    <input type="text" name="nombre" class="popup-input" placeholder="Tu nombre" required>
+    <input type="email" name="email" class="popup-input" placeholder="Tu correo electrónico" required>
+    <button type="submit" class="popup-submit">Obtener mi descuento</button>
+</form>
+            
+        </div>
+    </div>
 
     <header>
         <nav>
@@ -85,8 +564,59 @@
 
     <section id="inicio" class="hero">
         <h1>Reparación Profesional de Laptops</h1>
-        <p>Invierte en tu herramienta de trabajo que utilizas todos los días.</p>
+        <p>Invierte en tu herramienta que utilizas todos los días.</p>
         <a href="https://wa.me/5219511996199?text=Hola,%20necesito%20un%20diagnóstico%20para%20mi%20laptop" target="_blank" class="btn">Solicitar Diagnóstico</a>
+    </section>
+
+    <section id="servicios" class="container">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <div class="services">
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Reparación de Hardware</h3>
+                <p>Reemplazo de pantallas, teclados, baterías, discos duros y componentes internos.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💾</div>
+                <h3>Recuperación de Datos</h3>
+                <p>Recuperamos información de discos dañados y sistemas que no inician.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Optimización</h3>
+                <p>Mejoramos el rendimiento de tu laptop con actualizaciones de RAM y SSD.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🛡️</div>
+                <h3>Eliminación de Virus</h3>
+                <p>Limpieza completa de malware y protección de tu sistema operativo.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌡️</div>
+                <h3>Mantenimiento Preventivo</h3>
+                <p>Limpieza interna, cambio de pasta térmica y revisión general.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Instalación de Software</h3>
+                <p>Instalamos sistemas operativos, drivers y programas especializados.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔑</div>
+                <h3>Licencias de Software</h3>
+                <p>Venta e instalación de licencias originales de Windows, Office y programas profesionales.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🖨️</div>
+                <h3>Reparación y Mantenimiento de Impresoras</h3>
+                <p>Reparación, limpieza y mantenimiento de impresoras láser e inyección de tinta.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Reparación de Celulares</h3>
+                <p>Cambio de pantallas, baterías, conectores de carga y reparación de placas.</p>
+            </div>
+        </div>
     </section>
 
     <section id="nosotros" class="features">
@@ -94,35 +624,35 @@
         <div class="features-slider">
             <button class="slider-arrow prev" onclick="moveSlide(-1)">‹</button>
             <button class="slider-arrow next" onclick="moveSlide(1)">›</button>
-
+            
             <div class="slider-container">
                 <div class="feature-item active">
-                    <div>⚡</div>
+                    <div style="font-size: 3.5rem;">⚡</div>
                     <h4>Servicio Rápido</h4>
                     <p>Reparaciones en 24-48 horas en la mayoría de los casos</p>
                 </div>
                 <div class="feature-item">
-                    <div>✅</div>
+                    <div style="font-size: 3.5rem;">✅</div>
                     <h4>Garantía por Escrito</h4>
                     <p>3 meses de garantía en todas nuestras reparaciones</p>
                 </div>
                 <div class="feature-item">
-                    <div>👨‍🔧</div>
+                    <div style="font-size: 3.5rem;">👨‍🔧</div>
                     <h4>Técnicos Certificados</h4>
                     <p>Más de 10 años de experiencia en el sector</p>
                 </div>
                 <div class="feature-item">
-                    <div>💰</div>
+                    <div style="font-size: 3.5rem;">💰</div>
                     <h4>Precios Justos</h4>
                     <p>Diagnóstico gratuito y presupuestos sin compromiso</p>
                 </div>
                 <div class="feature-item">
-                    <div>🚚</div>
+                    <div style="font-size: 3.5rem;">🚚</div>
                     <h4>Recolección y Entrega a Domicilio</h4>
                     <p>Recogemos y entregamos tu laptop donde lo necesites</p>
                 </div>
             </div>
-
+            
             <div class="slider-dots">
                 <span class="dot active" onclick="currentSlide(0)"></span>
                 <span class="dot" onclick="currentSlide(1)"></span>
@@ -133,7 +663,62 @@
         </div>
     </section>
 
-    <!-- Agrega aquí tus otras secciones (servicios, reseñas, popup, footer) como en tu código original -->
+    <section id="recomendaciones" class="contact">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <p>Reseñas verificadas de Google Business</p>
+        
+        <div class="reviews-slider">
+            <button class="review-arrow prev" onclick="moveReview(-1)">‹</button>
+            <button class="review-arrow next" onclick="moveReview(1)">›</button>
+            
+            <div class="reviews-container">
+                <div class="review-item active">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Excelente servicio, repararon mi laptop en menos de 24 horas. Muy profesionales y el precio fue justo. Totalmente recomendados."</p>
+                    <p class="review-author">María González</p>
+                    <p class="review-date">Hace 2 semanas</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Mi laptop ya no encendía y pensé que había perdido todos mis archivos. No solo la repararon, sino que recuperaron toda mi información. ¡Increíble trabajo!"</p>
+                    <p class="review-author">Carlos Ramírez</p>
+                    <p class="review-date">Hace 1 mes</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"El servicio a domicilio es súper conveniente. Vinieron por mi laptop, la repararon y me la entregaron en perfecto estado. La garantía por escrito me da mucha confianza."</p>
+                    <p class="review-author">Ana López</p>
+                    <p class="review-date">Hace 3 semanas</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Atención excelente desde el primer contacto por WhatsApp. Me explicaron todo el proceso y cumplieron con los tiempos prometidos. Muy satisfecho."</p>
+                    <p class="review-author">Roberto Méndez</p>
+                    <p class="review-date">Hace 1 semana</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Llevé mi laptop a otros lugares y nadie pudo repararla. Aquí la solucionaron en dos días. Técnicos muy capacitados y honestos. Los recomiendo ampliamente."</p>
+                    <p class="review-author">Patricia Silva</p>
+                    <p class="review-date">Hace 2 meses</p>
+                </div>
+            </div>
+            
+            <div class="reviews-dots">
+                <span class="dot active" onclick="currentReview(0)"></span>
+                <span class="dot" onclick="currentReview(1)"></span>
+                <span class="dot" onclick="currentReview(2)"></span>
+                <span class="dot" onclick="currentReview(3)"></span>
+                <span class="dot" onclick="currentReview(4)"></span>
+            </div>
+        </div>
+        
+        <a href="https://g.page/r/CRpweGbvrNZuEBM/review" target="_blank" class="google-link">📝 Deja tu recomendación en Google</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Dimmtechnology. Todos los derechos reservados.</p>
+    </footer>
 
     <script>
         let currentIndex = 0;
@@ -142,22 +727,123 @@
         const totalItems = items.length;
 
         function showSlide(index) {
-            items.forEach((item, i) => item.classList.toggle('active', i === index));
-            dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
-            document.querySelector('.slider-container').style.transform = `translateX(-${index * 100}%)`;
+            items.forEach((item, i) => {
+                item.classList.remove('active');
+                if (i === index) {
+                    item.classList.add('active');
+                }
+            });
+
+            dots.forEach((dot, i) => {
+                dot.classList.remove('active');
+                if (i === index) {
+                    dot.classList.add('active');
+                }
+            });
+
+            const container = document.querySelector('.slider-container');
+            container.style.transform = `translateX(-${index * 100}%)`;
         }
 
         function moveSlide(direction) {
-            currentIndex = (currentIndex + direction + totalItems) % totalItems;
+            currentIndex += direction;
+            if (currentIndex < 0) {
+                currentIndex = totalItems - 1;
+            } else if (currentIndex >= totalItems) {
+                currentIndex = 0;
+            }
             showSlide(currentIndex);
         }
 
-        function currentSlide(n) {
-            currentIndex = n;
-            showSlide(n);
+        function currentSlide(index) {
+            currentIndex = index;
+            showSlide(currentIndex);
         }
 
-        setInterval(() => moveSlide(1), 5000); // Auto-slide cada 5s
+        // Auto-play
+        setInterval(() => {
+            moveSlide(1);
+        }, 5000);
+
+        // Reviews Slider
+        let currentReviewIndex = 0;
+        const reviewItems = document.querySelectorAll('.review-item');
+        const reviewDots = document.querySelectorAll('.reviews-dots .dot');
+        const totalReviews = reviewItems.length;
+
+        function showReview(index) {
+            reviewItems.forEach((item, i) => {
+                item.classList.remove('active');
+                if (i === index) {
+                    item.classList.add('active');
+                }
+            });
+
+            reviewDots.forEach((dot, i) => {
+                dot.classList.remove('active');
+                if (i === index) {
+                    dot.classList.add('active');
+                }
+            });
+
+            const container = document.querySelector('.reviews-container');
+            container.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function moveReview(direction) {
+            currentReviewIndex += direction;
+            if (currentReviewIndex < 0) {
+                currentReviewIndex = totalReviews - 1;
+            } else if (currentReviewIndex >= totalReviews) {
+                currentReviewIndex = 0;
+            }
+            showReview(currentReviewIndex);
+        }
+
+        function currentReview(index) {
+            currentReviewIndex = index;
+            showReview(currentReviewIndex);
+        }
+
+        // Auto-play reviews
+        setInterval(() => {
+            moveReview(1);
+        }, 6000);
+
+        // Popup functionality
+        function showPopup() {
+            const popup = document.getElementById('popupOverlay');
+            popup.classList.add('active');
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('popupOverlay');
+            popup.classList.remove('active');
+            localStorage.setItem('popupShown', 'true');
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('¡Gracias por registrarte! Te hemos enviado tu cupón de 10% de descuento por correo.');
+            closePopup();
+        }
+
+        // Show popup after 5 seconds if not shown before
+        window.addEventListener('load', () => {
+            const popupShown = localStorage.getItem('popupShown');
+            if (!popupShown) {
+                setTimeout(() => {
+                    showPopup();
+                }, 5000);
+            }
+        });
+
+        // Close popup when clicking outside
+        document.getElementById('popupOverlay').addEventListener('click', (e) => {
+            if (e.target.id === 'popupOverlay') {
+                closePopup();
+            }
+        });
     </script>
 </body>
 </html>
